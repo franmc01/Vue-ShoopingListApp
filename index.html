@@ -11,6 +11,36 @@
 
     <div id="shopping-list">
         <h1>{{ header || 'Welcome' }}</h1>
+        <input type="text" v-model="newItem" placeholder="Add an item">
+        <!-- <strong>Priority: </strong>
+        <label>
+            <input type="radio" v-model="newItemPriority" value="high">
+        </label>
+        <label>
+            <input type="radio" v-model="newItemPriority" value="low">
+        </label>
+
+        <label>
+            <select v-model="newItemPriority">
+                <option value="low">Low</option>
+                <option value="high">High</option>
+            </select>
+        </label> -->
+
+        <label>
+            <input type="checkbox" v-model="newItemHighPriority">
+            High Priority
+        </label>
+
+        <br>
+        <!-- {{ newItem }} | {{ newItemHighPriority }}
+        
+        <br><br>
+        <label> <input type="checkbox" v-model="iceCreamFlavors" value="vainilla"> Vainilla</label>
+        <label> <input type="checkbox" v-model="iceCreamFlavors" value="chocolate"> Chocolate</label>
+        <label> <input type="checkbox" v-model="iceCreamFlavors" value="strawberry"> Strawberry</label>
+        <label> <input type="checkbox" v-model="iceCreamFlavors" value="cookies-and-cream"> Cookies and Cream</label> -->
+        
         <ul>
             <li v-for="item in arrayItems" :key="item.id">
                 {{ item.label }}

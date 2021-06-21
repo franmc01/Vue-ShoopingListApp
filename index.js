@@ -2,6 +2,10 @@ const app = Vue.createApp({
     data() {
         return {
             header: 'Shopping List App',
+            newItem: '',
+            newItemPriority: 'low',
+            newItemHighPriority: false,
+            iceCreamFlavors: [],
             arrayItems: [
                 { id: 1, label: '10 party hats' },
                 { id: 2, label: '2 board games' },
