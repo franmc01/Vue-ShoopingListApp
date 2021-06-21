@@ -8,26 +8,41 @@ const app = Vue.createApp({
             newItemHighPriority: false,
             iceCreamFlavors: [],
             arrayItems: [
-                // { id: 1, label: '10 party hats' },
-                // { id: 2, label: '2 board games' },
-                // { id: 3, label: '20 cups' },
+                { id: 1, label: '10 party hats', purchased: false, highPriority: true },
+                { id: 2, label: '2 board games', purchased: true, highPriority: true },
+                { id: 3, label: '20 cups', purchased: true, highPriority: true },
             ],
             objectItems: {
-                'item-1': { id: 1, label: '10 party hats' },
-                'item-2': { id: 2, label: '2 board games' },
-                'item-3': { id: 3, label: '20 cups' },
+                'item-1': { id: 1, label: '10 party hats', purchased: false },
+                'item-2': { id: 2, label: '2 board games', purchased: true },
+                'item-3': { id: 3, label: '20 cups', purchased: true },
             }
         }
     },
     methods: {
         saveItem() {
-            this.arrayItems.push({ id: this.arrayItems.length + 1, label: this.newItem });
+            this.arrayItems.push({
+                id: this.arrayItems.length + 1,
+                label: this.newItem,
+                highPriority: this.newItemHighPriority
+            });
             this.newItem = "";
+            this.newItemHighPriority = false;
         },
         doEdit(editing) {
             this.editing = editing;
             this.newItem = '';
+            this.newItemHighPriority = false;
+        },
+        togglePurchased(item) {
+            item.purchased = !item.purchased;
         }
     }
 
 }).mount('#shopping-list');
+
+
+// Apuntes
+/* Para agregar clases dinamicas en Vue existen dos formas - Object Sintax y Array Syntax,
+cabe mencionar que no es obligatorio que se deba aprender ambas, en todo caso cualquiera de
+dos cumple su cometido; en lo personal yo me quedo con la de Array Syntax */

@@ -62,7 +62,20 @@
         <label> <input type="checkbox" v-model="iceCreamFlavors" value="cookies-and-cream"> Cookies and Cream</label> -->
 
         <ul>
-            <li v-for="item in arrayItems" :key="item.id">
+            <!-- <li 
+                v-for="item in arrayItems" 
+                :key="item.id"
+                class="static-class"
+                @click="togglePurchased(item)"
+                :class="{strikeout: item.purchased, priority: item.highPriority}">
+                {{ item.label }}
+            </li> -->
+            <li 
+                v-for="item in arrayItems" 
+                :key="item.id"
+                class="static-class"
+                @click="togglePurchased(item)"
+                :class="[item.purchased && 'strikeout', item.highPriority && 'priority']">
                 {{ item.label }}
             </li>
         </ul>
