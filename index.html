@@ -15,7 +15,7 @@
         <h1>{{ header || 'Welcome' }}</h1>
         <div class="add-item-form">
             <input 
-                @:keyup.enter="arrayItems.push({ id: arrayItems.length+1, label: newItem })" 
+                @keyup.enter="saveItem" 
                 type="text" 
                 v-model="newItem" 
                 placeholder="Add an item"
@@ -25,7 +25,7 @@
                 High Priority
             </label>
             <button 
-                @:click="arrayItems.push({ id: arrayItems.length+1, label: newItem })" 
+                @click="saveItem" 
                 class="btn btn-primary">
                 Save Item
             </button>

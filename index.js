@@ -18,5 +18,11 @@ const app = Vue.createApp({
             }
         }
     },
+    methods: {
+        saveItem() {
+            this.arrayItems.push({ id: this.arrayItems.length + 1, label: this.newItem });
+            this.newItem = "";
+        }
+    }
 
 }).mount('#shopping-list');
