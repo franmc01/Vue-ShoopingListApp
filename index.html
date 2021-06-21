@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Fundamentals PART II</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div id="shopping-list">
+        <h1>{{ header || 'Welcome' }}</h1>
+        <ul>
+            <li v-for="item in arrayItems" :key="item.id">
+                {{ item.label }}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="(item, index) in arrayItems" :key="item.id">
+               {{ index }} - {{ item.label }}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="(value, key) in objectItems" :key="value.id">
+               {{ key }} - {{ value.label }}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="(value, key, index) in objectItems" :key="value.id">
+              {{ index }} - {{ key }} - {{ value.label }}
+            </li>
+        </ul>
+    </div>
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="index.js"></script>
+</body>
+</html>
