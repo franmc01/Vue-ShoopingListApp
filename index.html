@@ -24,6 +24,7 @@
                 v-model="newItem" 
                 placeholder="Add an item"
             >
+            <p class="counter">{{ characterCount }}/150</p>
             <label>
                 <input type="checkbox" v-model="newItemHighPriority">
                 High Priority
@@ -71,7 +72,7 @@
                 {{ item.label }}
             </li> -->
             <li 
-                v-for="item in arrayItems" 
+                v-for="item in reversedItems" 
                 :key="item.id"
                 class="static-class"
                 @click="togglePurchased(item)"

@@ -7,11 +7,7 @@ const app = Vue.createApp({
             newItemPriority: 'low',
             newItemHighPriority: false,
             iceCreamFlavors: [],
-            arrayItems: [
-                { id: 1, label: '10 party hats', purchased: false, highPriority: true },
-                { id: 2, label: '2 board games', purchased: true, highPriority: true },
-                { id: 3, label: '20 cups', purchased: true, highPriority: true },
-            ],
+            arrayItems: [],
             objectItems: {
                 'item-1': { id: 1, label: '10 party hats', purchased: false },
                 'item-2': { id: 2, label: '2 board games', purchased: true },
@@ -37,7 +33,15 @@ const app = Vue.createApp({
         togglePurchased(item) {
             item.purchased = !item.purchased;
         }
-    }
+    },
+    computed: {
+        characterCount() {
+            return this.newItem.length;
+        },
+        reversedItems() {
+            return [...this.arrayItems].reverse();
+        }
+    },
 
 }).mount('#shopping-list');
 
