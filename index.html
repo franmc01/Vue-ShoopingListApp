@@ -29,6 +29,7 @@
                 High Priority
             </label>
             <button 
+                :disabled="newItem.length < 4"
                 @click="saveItem" 
                 class="btn btn-primary">
                 Save Item
