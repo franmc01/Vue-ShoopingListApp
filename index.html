@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Fundamentals PART II</title>
+    <title>Vue - ShoppingListApp</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -14,8 +14,8 @@
     <div id="shopping-list">
         <div class="header">
             <h1>{{ header || 'Welcome' }}</h1>
-            <button class="btn btn-cancel" v-if="editing" @click="doEdit(false)">Cancel</button>
-            <button class="btn btn-primry" v-else @click="doEdit(true)">Add item</button>
+            <button class="btn btn-cancel" v-if="editing" @click="doEdit(false)">Close</button>
+            <button class="btn btn-primry" v-else @click="doEdit(true)">Add Item</button>
         </div>
         <div v-if="editing" class="add-item-form">
             <input 
@@ -37,40 +37,7 @@
             </button>
         </div>
         <p v-if="arrayItems.length === 0">Nice job! You've bought all your items!</p>
-        <!-- <strong>Priority: </strong>
-        <label>
-            <input type="radio" v-model="newItemPriority" value="high">
-        </label>
-        <label>
-            <input type="radio" v-model="newItemPriority" value="low">
-        </label>
-
-        <label>
-            <select v-model="newItemPriority">
-                <option value="low">Low</option>
-                <option value="high">High</option>
-            </select>
-        </label> -->
-
-
-        <!-- <br> -->
-        <!-- {{ newItem }} | {{ newItemHighPriority }}
-        
-        <br><br>
-        <label> <input type="checkbox" v-model="iceCreamFlavors" value="vainilla"> Vainilla</label>
-        <label> <input type="checkbox" v-model="iceCreamFlavors" value="chocolate"> Chocolate</label>
-        <label> <input type="checkbox" v-model="iceCreamFlavors" value="strawberry"> Strawberry</label>
-        <label> <input type="checkbox" v-model="iceCreamFlavors" value="cookies-and-cream"> Cookies and Cream</label> -->
-
         <ul>
-            <!-- <li 
-                v-for="item in arrayItems" 
-                :key="item.id"
-                class="static-class"
-                @click="togglePurchased(item)"
-                :class="{strikeout: item.purchased, priority: item.highPriority}">
-                {{ item.label }}
-            </li> -->
             <li 
                 v-for="item in reversedItems" 
                 :key="item.id"
@@ -80,25 +47,6 @@
                 {{ item.label }}
             </li>
         </ul>
-
-        <!-- Otras formas en las que podemos usar el v-for -->
-        <!-- <ul>
-            <li v-for="(item, index) in arrayItems" :key="item.id">
-               {{ index }} - {{ item.label }}
-            </li>
-        </ul>
-
-        <ul>
-            <li v-for="(value, key) in objectItems" :key="value.id">
-               {{ key }} - {{ value.label }}
-            </li>
-        </ul>
-
-        <ul>
-            <li v-for="(value, key, index) in objectItems" :key="value.id">
-              {{ index }} - {{ key }} - {{ value.label }}
-            </li>
-        </ul> -->
     </div>
 
     <script src="https://unpkg.com/vue@next"></script>
