@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,28 @@
     <title>Vue Fundamentals PART II</title>
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
 
     <div id="shopping-list">
         <h1>{{ header || 'Welcome' }}</h1>
-        <input type="text" v-model="newItem" placeholder="Add an item">
+        <div class="add-item-form">
+            <input 
+                @:keyup.enter="arrayItems.push({ id: arrayItems.length+1, label: newItem })" 
+                type="text" 
+                v-model="newItem" 
+                placeholder="Add an item"
+            >
+            <label>
+                <input type="checkbox" v-model="newItemHighPriority">
+                High Priority
+            </label>
+            <button 
+                @:click="arrayItems.push({ id: arrayItems.length+1, label: newItem })" 
+                class="btn btn-primary">
+                Save Item
+            </button>
+        </div>
         <!-- <strong>Priority: </strong>
         <label>
             <input type="radio" v-model="newItemPriority" value="high">
@@ -27,12 +45,8 @@
             </select>
         </label> -->
 
-        <label>
-            <input type="checkbox" v-model="newItemHighPriority">
-            High Priority
-        </label>
 
-        <br>
+        <!-- <br> -->
         <!-- {{ newItem }} | {{ newItemHighPriority }}
         
         <br><br>
@@ -40,7 +54,7 @@
         <label> <input type="checkbox" v-model="iceCreamFlavors" value="chocolate"> Chocolate</label>
         <label> <input type="checkbox" v-model="iceCreamFlavors" value="strawberry"> Strawberry</label>
         <label> <input type="checkbox" v-model="iceCreamFlavors" value="cookies-and-cream"> Cookies and Cream</label> -->
-        
+
         <ul>
             <li v-for="item in arrayItems" :key="item.id">
                 {{ item.label }}
@@ -66,8 +80,9 @@
             </li>
         </ul> -->
     </div>
-    
+
     <script src="https://unpkg.com/vue@next"></script>
     <script src="index.js"></script>
 </body>
+
 </html>
